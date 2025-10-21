@@ -136,23 +136,27 @@ void input_book() {
 }
 
 
-void return_books(){
-	if (bookCount == 0)
-	{
+void return_books() {
+	if (bookCount == 0) {
 		cout << "Книги отсутствуют, добавьте хотя бы одну.\n";
 		return;
 	}
-	else {
-		for (int i = 0; i < bookCount; i++) {
-			cout << "Номер:" << i+1 << endl;
-			cout << "Название:"<< AllBooks[i].name << endl;
-			cout << "Автор:" << AllBooks[i].author << endl;
-			cout << "Год выауска:" << AllBooks[i].year << endl;
-			cout << "Оценка:" << AllBooks[i].value <<"\n"<< endl;
-		}
+	cout << "\n----------------------------Список книг---------------------------\n";
+	cout << left << setw(6)  << "№"
+		 << setw(25) << "Название"
+		 << setw(20) << "Автор"
+		 << setw(10) << "Год"
+		 << setw(8)  << "Оценка" << "\n";
+	cout << "------------------------------------------------------------------\n";
 
+	for (int i = 0; i < bookCount; i++) {
+		cout << left << setw(6)  << i + 1
+			 << setw(25) << AllBooks[i].name
+			 << setw(20) << AllBooks[i].author
+			 << setw(10) << AllBooks[i].year
+			 << setw(8)  << AllBooks[i].value << "\n";
 	}
-};
+}
 
 void Menu()
 {
