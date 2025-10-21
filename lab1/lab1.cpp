@@ -86,22 +86,22 @@ void input_book() {
 
 	Book NewBook;
 
-	cout << "Введите название: ";
+	cout << "Введите название:\n";
 	cin.ignore();
 	cin.getline(NewBook.name, 100);
-	cout << "Введите автора: ";
+	cout << "Введите автора:\n";
 	cin.getline(NewBook.author, 50);
 
-	cout << "Введите год выпуска: ";
+	cout << "Введите год выпуска:\n";
 	while (!(cin >> NewBook.year)) {
-		cout << "Ошибка! Введите целое число для года: ";
+		cout << "Ошибка! Введите целое число для года:\n";
 		cin.clear();
 		cin.ignore(10000, '\n');
 	}
 
-	cout << "Введите вашу оценку: ";
+	cout << "Введите вашу оценку:\n";
 	while (!(cin >> NewBook.value)) {
-		cout << "Ошибка! Введите число для оценки: ";
+		cout << "Ошибка! Введите число для оценки:\n";
 		cin.clear();
 		cin.ignore(10000, '\n');
 	}
@@ -112,7 +112,6 @@ void input_book() {
 		cout << "Книга добавлена" << endl;
 	}
 	else {
-		cout << "Ошибка валидации\n";
 		input_book();
 
 	}
@@ -130,7 +129,7 @@ void return_books(){
 			cout << "Номер:" << i + 1 << endl;
 			cout << "Название:" << AllBooks[i].name << endl;
 			cout << "Автор:" << AllBooks[i].author << endl;
-			cout << "Год выауска:" << AllBooks[i].year << endl;
+			cout << "Год выпуска:" << AllBooks[i].year << endl;
 			cout << "Оценка:" << AllBooks[i].value << "\n" << endl;
 		}
 
