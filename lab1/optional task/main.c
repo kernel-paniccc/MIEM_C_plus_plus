@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-/*ë89 ·‚†≠§†‡‚ */
+/*–°89 —Å—Ç–∞–Ω–¥–∞—Ä—Ç */
 
 #define MAX_EXPENSES 1000
 
@@ -12,7 +12,7 @@ struct Expense {
     float amount;
 };
 
-struct Expense expenses[MAX_EXPENSES];
+struct Expense expenses[MAX_EXPaENSES];
 int expenseCount = 0;
 
 
@@ -35,7 +35,7 @@ void saveExpenseToFile(const char *filename, struct Expense e)
 {
     FILE *fout = fopen(filename, "a");
     if (!fout) {
-        printf("éË®°™† Ø‡® ·ÆÂ‡†≠•≠®® ‰†©´†!\n");
+        printf("–û—à–∏–±–∫–∞ –ø—Ä–∏ —Å–æ—Ö—Ä–∞–Ω–µ–Ω–∏–∏ —Ñ–∞–π–ª–∞!\n");
         return;
     }
     fprintf(fout, "%s %s %.2f\n", e.date, e.category, e.amount);
@@ -47,22 +47,22 @@ void addExpense()
 {
     struct Expense e;
     if (expenseCount >= MAX_EXPENSES) {
-        printf("è‡•¢ÎË•≠ ´®¨®‚ ‡†·ÂÆ§Æ¢!\n");
+        printf("–ü—Ä–µ–≤—ã—à–µ–Ω –ª–∏–º–∏—Ç —Ä–∞—Å—Ö–æ–¥–æ–≤!\n");
         return;
     }
-    printf("Ç¢•§®‚• §†‚„ (§§.¨¨.££££): ");
+    printf("–í–≤–µ–¥–∏—Ç–µ –¥–∞—Ç—É (–¥–¥.–º–º.–≥–≥–≥–≥): ");
     scanf("%10s", e.date);
 
-    printf("Ç¢•§®‚• ™†‚•£Æ‡®Ó: ");
+    printf("–í–≤–µ–¥–∏—Ç–µ –∫–∞—Ç–µ–≥–æ—Ä–∏—é: ");
     scanf("%29s", e.category);
 
-    printf("Ç¢•§®‚• ·„¨¨„: ");
+    printf("–í–≤–µ–¥–∏—Ç–µ —Å—É–º–º—É: ");
     scanf("%f", &e.amount);
 
     expenses[expenseCount++] = e;
     saveExpenseToFile("expenses.txt", e);
 
-    printf("ê†·ÂÆ§ §Æ°†¢´•≠!\n");
+    printf("–†–∞—Å—Ö–æ–¥ –¥–æ–±–∞–≤–ª–µ–Ω!\n");
 }
 
 
@@ -70,14 +70,14 @@ void showAllExpenses()
 {
     int i;
     if (expenseCount == 0) {
-        printf("ç•‚ §†≠≠ÎÂ Æ ‡†·ÂÆ§†Â.\n");
+        printf("–ù–µ—Ç –¥–∞–Ω–Ω—ã—Ö –æ —Ä–∞—Å—Ö–æ–¥–∞—Ö.\n");
         return;
     }
-    printf("\n--- Ç·• ‡†·ÂÆ§Î ---\n");
-    printf("%-12s%-15s%s\n", "Ñ†‚†", "ä†‚•£Æ‡®Ô", "ë„¨¨†");
+    printf("\n--- –í—Å–µ —Ä–∞—Å—Ö–æ–¥—ã ---\n");
+    printf("%-12s%-15s%s\n", "–î–∞—Ç–∞", "–ö–∞—Ç–µ–≥–æ—Ä–∏—è", "–°—É–º–º–∞");
     printf("------------------------------\n");
     for (i = 0; i < expenseCount; i++) {
-        printf("%-12s%-15s%.2f ‡„°.\n", expenses[i].date, expenses[i].category, expenses[i].amount);
+        printf("%-12s%-15s%.2f —Ä—É–±.\n", expenses[i].date, expenses[i].category, expenses[i].amount);
     }
 }
 
@@ -87,7 +87,7 @@ void showStats()
     int i;
     float total = 0, max;
     if (expenseCount == 0) {
-        printf("ç•‚ §†≠≠ÎÂ §´Ô †≠†´®ß†.\n");
+        printf("–ù–µ—Ç –¥–∞–Ω–Ω—ã—Ö –¥–ª—è –∞–Ω–∞–ª–∏–∑–∞.\n");
         return;
     }
     max = expenses[0].amount;
@@ -96,21 +96,21 @@ void showStats()
         if (expenses[i].amount > max)
             max = expenses[i].amount;
     }
-    printf("\n--- ë‚†‚®·‚®™† ---\n");
-    printf("Ç·•£Æ ØÆ‚‡†Á•≠Æ: %.2f ‡„°.\n", total);
-    printf("ë‡•§≠ÔÔ ‚‡†‚†: %.2f ‡„°.\n", total / expenseCount);
-    printf("å†™·®¨†´Ï≠†Ô ‚‡†‚†: %.2f ‡„°.\n", max);
+    printf("\n--- –°—Ç–∞—Ç–∏—Å—Ç–∏–∫–∞ ---\n");
+    printf("–í—Å–µ–≥–æ –ø–æ—Ç—Ä–∞—á–µ–Ω–æ: %.2f —Ä—É–±.\n", total);
+    printf("–°—Ä–µ–¥–Ω—è—è —Ç—Ä–∞—Ç–∞: %.2f —Ä—É–±.\n", total / expenseCount);
+    printf("–ú–∞–∫—Å–∏–º–∞–ª—å–Ω–∞—è —Ç—Ä–∞—Ç–∞: %.2f —Ä—É–±.\n", max);
 }
 
 
 void showMenu()
 {
-    printf("\n=== í‡•™•‡ ‡†·ÂÆ§Æ¢ ===\n");
-    printf("1. ÑÆ°†¢®‚Ï ‡†·ÂÆ§\n");
-    printf("2. èÆ™†ß†‚Ï ¢·• ‡†·ÂÆ§Î\n");
-    printf("3. èÆ™†ß†‚Ï ·‚†‚®·‚®™„\n");
-    printf("4. ÇÎÂÆ§\n");
-    printf("ÇÎ°•‡®‚• Ø„≠™‚: ");
+    printf("\n=== –¢—Ä–µ–∫–µ—Ä —Ä–∞—Å—Ö–æ–¥–æ–≤ ===\n");
+    printf("1. –î–æ–±–∞–≤–∏—Ç—å —Ä–∞—Å—Ö–æ–¥\n");
+    printf("2. –ü–æ–∫–∞–∑–∞—Ç—å –≤—Å–µ —Ä–∞—Å—Ö–æ–¥—ã\n");
+    printf("3. –ü–æ–∫–∞–∑–∞—Ç—å —Å—Ç–∞—Ç–∏—Å—Ç–∏–∫—É\n");
+    printf("4. –í—ã—Ö–æ–¥\n");
+    printf("–í—ã–±–µ—Ä–∏—Ç–µ –ø—É–Ω–∫—Ç: ");
 }
 
 int main()
@@ -131,10 +131,10 @@ int main()
                 showStats();
                 break;
             case 4:
-                printf("ÇÎÂÆ§ ®ß Ø‡Æ£‡†¨¨Î.\n");
+                printf("–í—ã—Ö–æ–¥ –∏–∑ –ø—Ä–æ–≥—Ä–∞–º–º—ã.\n");
                 break;
             default:
-                printf("ç•¢•‡≠Î© ¢Î°Æ‡.\n");
+                printf("–ù–µ–≤–µ—Ä–Ω—ã–π –≤—ã–±–æ—Ä.\n");
         }
     } while (choice != 4);
 
