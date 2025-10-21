@@ -43,6 +43,22 @@ void loadBooks(const char *filename)
 	fin.close();
 }
 
+bool isNumber(const string str) {
+	if (str.empty()) return 0;
+
+	bool hasDecimal = 0;
+	for (int i = 0; i < str.length(); i++) {
+
+		if (str[i] == '.') {
+			if (hasDecimal) return 0;
+			hasDecimal = 1;
+			continue;
+		}
+
+		if (!isdigit(str[i])) return 0;
+	}
+	return 1;
+}
 
 
 bool Validation(Book book) {
