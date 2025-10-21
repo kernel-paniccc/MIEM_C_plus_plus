@@ -43,23 +43,6 @@ void loadBooks(const char *filename)
 	fin.close();
 }
 
-bool isNumber(const string str) {
-	if (str.empty()) return 0;
-
-	bool hasDecimal = 0;
-	for (int i = 0; i < str.length(); i++) {
-
-		if (str[i] == '.') {
-			if (hasDecimal) return 0;
-			hasDecimal = 1;
-			continue;
-		}
-
-		if (!isdigit(str[i])) return 0;
-	}
-	return 1;
-}
-
 
 bool Validation(Book book) {
 	if (strlen(book.name) == 0) {
@@ -144,11 +127,11 @@ void return_books(){
 	}
 	else {
 		for (int i = 0; i < bookCount; i++) {
-			cout << "Номер:" << i+1 << endl;
-			cout << "Название:"<< AllBooks[i].name << endl;
+			cout << "Номер:" << i + 1 << endl;
+			cout << "Название:" << AllBooks[i].name << endl;
 			cout << "Автор:" << AllBooks[i].author << endl;
 			cout << "Год выауска:" << AllBooks[i].year << endl;
-			cout << "Оценка:" << AllBooks[i].value <<"\n"<< endl;
+			cout << "Оценка:" << AllBooks[i].value << "\n" << endl;
 		}
 
 	}
