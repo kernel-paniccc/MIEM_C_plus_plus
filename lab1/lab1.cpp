@@ -22,7 +22,7 @@ void saveBookToFile(const char *filename, Book B)
 	ofstream fout(filename, ios::app);
 	if (!fout)
 	{
-		cout << "Žè¨¡ª  § ¯¨á¨ ¢ ä ©«!" << endl;
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð·Ð°Ð¿Ð¸ÑÐ¸ Ð² Ñ„Ð°Ð¹Ð»!" << endl;
 		return;
 	}
 
@@ -46,30 +46,30 @@ void loadBooks(const char *filename)
 
 bool Validation(Book book) {
 	if (strlen(book.name) == 0) {
-		cout << "ãáâ ï áâà®ª " << endl;
+		cout << "ÐŸÑƒÑÑ‚Ð°Ñ ÑÑ‚Ñ€Ð¾ÐºÐ°" << endl;
 		return 1;
 	}
 	if (strlen(book.name) >= sizeof(book.name)) {
-		cout << "‘«¨èª®¬ ¤«¨­­®¥ ­ §¢ ­¨¥" << endl;
+		cout << "Ð¡Ð»Ð¸ÑˆÐºÐ¾Ð¼ Ð´Ð»Ð¸Ð½Ð½Ð¾Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ" << endl;
 		return 1;
 	}
 
 	if (strlen(book.author) == 0) {
-		cout << "ãáâ ï áâà®ª " << endl;
+		cout << "ÐŸÑƒÑÑ‚Ð°Ñ ÑÑ‚Ñ€Ð¾ÐºÐ°" << endl;
 		return 1;
 	}
 	if (strlen(book.author) >= sizeof(book.author)) {
-		cout << "‘«¨èª®¬ ¤«¨­­®¥ ¨¬ï  ¢â®à !" << endl;
+		cout << "Ð¡Ð»Ð¸ÑˆÐºÐ¾Ð¼ Ð´Ð»Ð¸Ð½Ð½Ð¾Ðµ Ð¸Ð¼Ñ Ð°Ð²Ñ‚Ð¾Ñ€Ð°!" << endl;
 		return 1;
 	}
 
 	if (book.year < 0 || book.year > 2025) {
-		cout << "Žè¨¡ª  ¤ âë" << endl;
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð´Ð°Ñ‚Ñ‹" << endl;
 		return 1;
 	}
 
 	if (book.value < 0 || book.value > 10) {
-		cout << "Žè¨¡ª  ®æ¥­ª¨ ¯®«ì§®¢ â¥«ï" << endl;
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¾Ñ†ÐµÐ½ÐºÐ¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ" << endl;
 		return 1;
 	}
 
@@ -80,12 +80,13 @@ bool Validation(Book book) {
 void input_book() {
 
 	if (bookCount >= MAX_BOOKS) {
-		cout << "Žè¨¡ª  ¢¢®¤ ." << endl;
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ð²Ð¾Ð´Ð°." << endl;
 		return;
 	}
 
 	Book NewBook;
 
+<<<<<<< HEAD
 	cout << "‚¢¥¤¨â¥ ­ §¢ ­¨¥:\n";
 	cin.ignore();
 	cin.getline(NewBook.name, 100);
@@ -95,13 +96,30 @@ void input_book() {
 	cout << "‚¢¥¤¨â¥ £®¤ ¢ë¯ãáª :\n";
 	while (!(cin >> NewBook.year)) {
 		cout << "Žè¨¡ª ! ‚¢¥¤¨â¥ æ¥«®¥ ç¨á«® ¤«ï £®¤ :\n";
+=======
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ: ";
+	cin.ignore();
+	cin.getline(NewBook.name, 100);
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð°Ð²Ñ‚Ð¾Ñ€Ð°: ";
+	cin.getline(NewBook.author, 50);
+
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð³Ð¾Ð´ Ð²Ñ‹Ð¿ÑƒÑÐºÐ°: ";
+	while (!(cin >> NewBook.year)) {
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ»Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð´Ð»Ñ Ð³Ð¾Ð´Ð°: ";
+>>>>>>> f32618659c7c29b1237b57a1fd3c0bc606035f24
 		cin.clear();
 		cin.ignore(10000, '\n');
 	}
 
+<<<<<<< HEAD
 	cout << "‚¢¥¤¨â¥ ¢ èã ®æ¥­ªã:\n";
 	while (!(cin >> NewBook.value)) {
 		cout << "Žè¨¡ª ! ‚¢¥¤¨â¥ ç¨á«® ¤«ï ®æ¥­ª¨:\n";
+=======
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ð°ÑˆÑƒ Ð¾Ñ†ÐµÐ½ÐºÑƒ: ";
+	while (!(cin >> NewBook.value)) {
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð´Ð»Ñ Ð¾Ñ†ÐµÐ½ÐºÐ¸: ";
+>>>>>>> f32618659c7c29b1237b57a1fd3c0bc606035f24
 		cin.clear();
 		cin.ignore(10000, '\n');
 	}
@@ -109,21 +127,25 @@ void input_book() {
 	if (Validation(NewBook) == 0) {
 		saveBookToFile("books.txt", NewBook);
 		AllBooks[bookCount++] = NewBook;
-		cout << "Š­¨£  ¤®¡ ¢«¥­ " << endl;
+		cout << "ÐšÐ½Ð¸Ð³Ð° Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð°" << endl;
 	}
 	else {
+<<<<<<< HEAD
+=======
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ð°Ð»Ð¸Ð´Ð°Ñ†Ð¸Ð¸\n";
+>>>>>>> f32618659c7c29b1237b57a1fd3c0bc606035f24
 		input_book();
 
 	}
 }
 
 
-void return_books(){
-	if (bookCount == 0)
-	{
-		cout << "Š­¨£¨ ®âáãâáâ¢ãîâ, ¤®¡ ¢ìâ¥ å®âï ¡ë ®¤­ã.\n";
+void return_books() {
+	if (bookCount == 0) {
+		cout << "ÐšÐ½Ð¸Ð³Ð¸ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‚, Ð´Ð¾Ð±Ð°Ð²ÑŒÑ‚Ðµ Ñ…Ð¾Ñ‚Ñ Ð±Ñ‹ Ð¾Ð´Ð½Ñƒ.\n";
 		return;
 	}
+<<<<<<< HEAD
 	else {
 		for (int i = 0; i < bookCount; i++) {
 			cout << "®¬¥à:" << i + 1 << endl;
@@ -132,23 +154,38 @@ void return_books(){
 			cout << "ƒ®¤ ¢ë¯ãáª :" << AllBooks[i].year << endl;
 			cout << "Žæ¥­ª :" << AllBooks[i].value << "\n" << endl;
 		}
+=======
+	cout << "\n----------------------------Ð¡Ð¿Ð¸ÑÐ¾Ðº ÐºÐ½Ð¸Ð³---------------------------\n";
+	cout << left << setw(6)  << "â„–"
+		 << setw(25) << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ"
+		 << setw(20) << "ÐÐ²Ñ‚Ð¾Ñ€"
+		 << setw(10) << "Ð“Ð¾Ð´"
+		 << setw(8)  << "ÐžÑ†ÐµÐ½ÐºÐ°" << "\n";
+	cout << "------------------------------------------------------------------\n";
+>>>>>>> f32618659c7c29b1237b57a1fd3c0bc606035f24
 
+	for (int i = 0; i < bookCount; i++) {
+		cout << left << setw(6)  << i + 1
+			 << setw(25) << AllBooks[i].name
+			 << setw(20) << AllBooks[i].author
+			 << setw(10) << AllBooks[i].year
+			 << setw(8)  << AllBooks[i].value << "\n";
 	}
-};
+}
 
 void Menu()
 {
-	cout << "\n=== Œ…ž ===\n";
-	cout << "1. „®¡ ¢¨âì ª­¨£ã\n";
-	cout << "2. ®ª § âì ¢á¥ ª­¨£¨\n";
-	cout << "3. ®ª § âì áâ â¨áâ¨ªã ¯® ª­¨£ ¬\n";
-	cout << "4. ‚ëå®¤\n";
-	cout << "‚ë¡¥à¨â¥ ¯ã­ªâ: ";
+	cout << "\n=== ÐœÐ•ÐÐ® ===\n";
+	cout << "1. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÐºÐ½Ð¸Ð³Ñƒ\n";
+	cout << "2. ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ Ð²ÑÐµ ÐºÐ½Ð¸Ð³Ð¸\n";
+	cout << "3. ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ ÑÑ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÑƒ Ð¿Ð¾ ÐºÐ½Ð¸Ð³Ð°Ð¼\n";
+	cout << "4. Ð’Ñ‹Ñ…Ð¾Ð´\n";
+	cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¿ÑƒÐ½ÐºÑ‚: ";
 }
 
 void stat_books() {
 	if (bookCount == 0) {
-		cout << "¥â ª­¨£ ¤«ï áâ â¨áâ¨ª¨." << endl;
+		cout << "ÐÐµÑ‚ ÐºÐ½Ð¸Ð³ Ð´Ð»Ñ ÑÑ‚Ð°Ñ‚Ð¸ÑÑ‚Ð¸ÐºÐ¸." << endl;
 		return;
 	}
 
@@ -164,14 +201,14 @@ void stat_books() {
 		}
 		sum_score += AllBooks[i].value;
 	}
-	cout << "Š®«¨ç¥áâ¢® ª­¨£: " << bookCount << endl;
-	cout << "‚ëáè ï ®æ¥­ª : " << max_name << " ---> " << max_score << endl;
-	cout << "‘à¥¤­ïï ®æ¥­ª : " <<  (sum_score / bookCount) << endl;
+	cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÐºÐ½Ð¸Ð³: " << bookCount << endl;
+	cout << "Ð’Ñ‹ÑÑˆÐ°Ñ Ð¾Ñ†ÐµÐ½ÐºÐ°: " << max_name << " ---> " << max_score << endl;
+	cout << "Ð¡Ñ€ÐµÐ´Ð½ÑÑ Ð¾Ñ†ÐµÐ½ÐºÐ°: " <<  (sum_score / bookCount) << endl;
 }
 
 
 int main() {
-	cout << "==’à¥ª¥à ª­¨£==" << endl;
+	cout << "==Ð¢Ñ€ÐµÐºÐµÑ€ ÐºÐ½Ð¸Ð³==" << endl;
 	loadBooks("books.txt");
 
 	int choice;
@@ -193,10 +230,10 @@ int main() {
 				stat_books();
 				break;
 			case 4:
-				cout << "‚ëå®¤ ¨§ ¯à®£à ¬¬ë.\n\n";
+				cout << "Ð’Ñ‹Ñ…Ð¾Ð´ Ð¸Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹.\n\n";
 				break;
 			default:
-				cout << "Žè¨¡ª  ¢¢®¤ \n\n";
+				cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ð²Ð¾Ð´Ð°\n\n";
 				cin.clear();
 				cin.ignore(10000, '\n');
 		}
