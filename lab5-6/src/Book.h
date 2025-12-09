@@ -1,33 +1,33 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include <iostream>
-
-using namespace std;
+#include <string>
 
 class Book {
-    string titel;
-    string autor;
+private:
+    std::string title;
+    std::string author;
     int year;
-    string isbn;
+    std::string isbn;
     bool isAvailable;
-    string borrowedBy;
+    std::string borrowedBy;
 
-    public:
-        Book(std::string title, std::string author, int year, std::string isbn, bool isAbaible, std::string borrowedBy);
+public:
+    Book(const std::string& title,
+         const std::string& author,
+         int year,
+         const std::string& isbn);
 
-        string getTitle() const;
-        string getAuthor() const;
-        int getYear() const;
-        string getIsbn() const;
-        bool getIsAvaible() const;
-        string getBorrowedBy() const;
+    const std::string& getTitle() const;
+    const std::string& getAuthor() const;
+    int getYear() const;
+    const std::string& getIsbn() const;
+    bool getIsAvailable() const;
+    const std::string& getBorrowedBy() const;
 
-        void borrowBook(const string& userName);
-        void returnBook();
-        void displayInfo();
-
+    void borrowBook(const std::string& userName);
+    void returnBook();
+    void displayInfo() const;
 };
 
-
-#endif //BOOK_H
+#endif // BOOK_H
