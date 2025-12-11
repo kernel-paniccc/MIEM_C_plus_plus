@@ -60,6 +60,6 @@ void Book::displayInfo() const {
   cout << "Author: " << author << endl;
   cout << "Year: " << year << endl;
   cout << "ISBN: " << isbn << endl;
-  cout << "Avaible: " << (isAvailable ? "1" : "0") << endl;
+  cout << "Avaible: " << (isAvailable ? "yes" : "no") << endl;
   cout << "BorrowedBy" << (isAvailable ? "" : borrowedBy) << endl;
 }

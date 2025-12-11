@@ -28,7 +28,9 @@ public:
     const string& getBorrowedBy() const;
 
     void borrowBook(const string& userName);
+
     void returnBook();
+
     void displayInfo() const;
 };
 
