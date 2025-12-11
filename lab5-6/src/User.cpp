@@ -53,5 +53,5 @@ void User::displayProfile() const {
     for (size_t i = 0; i < borrowedBooks.size(); ++i)
       cout << borrowedBooks[i] << std::endl;
   }
-  cout << "Can get: " << maxBooksAllowed << "books" << endl;
+  cout << "Can get: " << maxBooksAllowed << " books" << endl;
 }
