@@ -1,8 +1,9 @@
 #ifndef USER_H
 #define USER_H
 
-#include "iostream"
-#include "vector"
+#include <iostream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ class User {
         int maxBooksAllowed;
     
     public:
-        User(string name, string userId, vector <string> borrowedBooks, int maxBooksAllowed);
+        User(string name, string userId, vector <string> borrowedBooks, int maxBooksAllowed = 3);
       
 
         string getName() const;
@@ -24,8 +25,8 @@ class User {
       
         bool canBorrowMore();
         void addBook(const string& isbn);
-        void removeBook(const string isbn);
-        void displayProfile();
+        void removeBook(const string& isbn);
+        void displayProfile() const;
 
 
 };
