@@ -1,8 +1,9 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
-#include <vector>
 #include <iostream>
+#include <string>
+#include <vector>
 
 #include "Book.h"
 #include "User.h"

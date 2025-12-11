@@ -32,11 +32,9 @@ void Library::returnBook(const string& isbn) {
   }
 
   for (auto& user : users) {
-    try {
-      user.removeBook(isbn);
-      book->returnBook();
-      return;
-    }
+    user.removeBook(isbn);
+    book->returnBook();
+    return;
   }
 }
 
