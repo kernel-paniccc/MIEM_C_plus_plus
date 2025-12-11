@@ -1,80 +1,65 @@
 #include "Book.h"
 
 #include <iostream>
-#include <stdexcept>
 
-namespace {
-constexpr int kMinYear = 1450;
-constexpr int kMaxYear = 2025;
-}
+using namespace std;
 
-Book::Book(const std::string& title,
-           const std::string& author,
+Book::Book(const string& title,
+           const string& author,
            int year,
-           const std::string& isbn)
+           const string& isbn)
     : title(title),
       author(author),
       year(year),
       isbn(isbn),
       isAvailable(true),
       borrowedBy() {
-    if (title.empty() || author.empty() || isbn.empty()) {
-        throw std::invalid_argument("Title, author and ISBN must not be empty.");
-    }
-    if (year < kMinYear || year > kMaxYear) {
-        throw std::invalid_argument("Year must be between 1450 and 2025.");
-    }
+  const int currentYear = 2025;
+  if (year < 1450 || year > currentYear) {
+    throw invalid_argument("Некорректный год издания" + title);
+  }
 }
 
-const std::string& Book::getTitle() const {
-    return title;
-}
+const string& Book::getTitle() const 
+{ return title; }
 
-const std::string& Book::getAuthor() const {
-    return author;
-}
+const string& Book::getAuthor() const
+{ return author; }
 
-int Book::getYear() const {
-    return year;
-}
+int Book::getYear() const 
+{ return year; }
 
-const std::string& Book::getIsbn() const {
-    return isbn;
-}
+const string& Book::getIsbn() const 
+{ return isbn; }
 
-bool Book::getIsAvailable() const {
-    return isAvailable;
-}
+bool Book::getIsAvailable() const 
+{ return isAvailable; }
 
-const std::string& Book::getBorrowedBy() const {
-    return borrowedBy;
-}
+const string& Book::getBorrowedBy() const 
+{ return borrowedBy; }
 
-void Book::borrowBook(const std::string& userName) {
-    if (userName.empty()) {
-        throw std::invalid_argument("User name cannot be empty.");
-    }
-    if (!isAvailable) {
-        throw std::runtime_error("Book is already borrowed.");
-    }
-    isAvailable = false;
-    borrowedBy = userName;
+void Book::borrowBook(const string& userName) {
+  if (!isAvailable) {
+    throw invalid_argument("Книга " + title + " не доступна");
+  }
+  isAvailable = false;
+  borrowedBy = userName;
 }
 
 void Book::returnBook() {
-    if (isAvailable) {
-        throw std::runtime_error("Book is not borrowed.");
-    }
-    isAvailable = true;
-    borrowedBy.clear();
+  if (isAvailable) {
+    throw invalid_argument("Книга " + title + "никому не выдана");
+  }
+  borrowedBy.clear();
+  isAvailable = true;
 }
 
 void Book::displayInfo() const {
-    std::cout << "Title: " << title << '\n'
-              << "Author: " << author << '\n'
-              << "Year: " << year << '\n'
-              << "ISBN: " << isbn << '\n'
-              << "Available: " << (isAvailable ? "yes" : "no") << '\n'
-              << "Borrowed by: " << (borrowedBy.empty() ? "-" : borrowedBy) << '\n'
-              << "---------------------------\n";
+  cout << "BOOK" << endl;
+  cout << "Title: " << title << endl;
+  cout << "Author: " << author << endl;
+  cout << "Year: " << year << endl;
+  cout << "ISBN: " << isbn << endl;
+  cout << "Avaible: " << (isAvailable ? "1" : "0") << endl;
+  cout << "BorrowedBy" << (isAvailable ? "" : borrowedBy) << endl;
 }

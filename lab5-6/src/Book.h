@@ -3,29 +3,31 @@
 
 #include <string>
 
+using namespace std;
+
 class Book {
 private:
-    std::string title;
-    std::string author;
+    string title;
+    string author;
     int year;
-    std::string isbn;
+    string isbn;
     bool isAvailable;
-    std::string borrowedBy;
+    string borrowedBy;
 
 public:
-    Book(const std::string& title,
-         const std::string& author,
+    Book(const string& title,
+         const string& author,
          int year,
-         const std::string& isbn);
+         const string& isbn);
 
-    const std::string& getTitle() const;
-    const std::string& getAuthor() const;
+    const string& getTitle() const;
+    const string& getAuthor() const;
     int getYear() const;
-    const std::string& getIsbn() const;
+    const string& getIsbn() const;
     bool getIsAvailable() const;
-    const std::string& getBorrowedBy() const;
+    const string& getBorrowedBy() const;
 
-    void borrowBook(const std::string& userName);
+    void borrowBook(const string& userName);
     void returnBook();
     void displayInfo() const;
 };
