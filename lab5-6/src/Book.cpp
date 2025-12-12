@@ -16,7 +16,7 @@ Book::Book(const string& title,
       borrowedBy() {
   const int currentYear = 2025;
   if (year < 1450 || year > currentYear) {
-    throw invalid_argument("Bad book year" + title);
+    throw invalid_argument("Bad book year " + title);
   }
 }
 
