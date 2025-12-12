@@ -6,7 +6,7 @@
 #include <vector>
 
 using namespace std;
-
+// Описание класс и методов для пользователя
 class User {
     private:
         string name;

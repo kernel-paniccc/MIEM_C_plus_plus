@@ -28,7 +28,9 @@ int promptInt(const string& text) {
     }
   }
 }
-}  // namespace
+}  // неймспейс для удобной работы с пользовательским выбором
+
+// далее просто выводим менюшку и switch case для обработки пользовательского вывода
 
 int main() {
   Library library("data/library_data.txt");

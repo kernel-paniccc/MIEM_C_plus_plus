@@ -9,7 +9,7 @@
 #include "User.h"
 
 using namespace std;
-
+// Описание класс и методов для самой библиотеки
 class Library {
     private:
         vector<Book> books;

@@ -4,7 +4,7 @@
 #include <string>
 
 using namespace std;
-
+// Описание класс и методов для книги
 class Book {
 private:
     string title;

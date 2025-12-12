@@ -9,7 +9,7 @@
 
 
 using namespace std;
-
+// неймспейс для удобного форматирования
 namespace {
 string trim(const string& value) {
   const auto first = value.find_first_not_of(" \t\r\n");
@@ -19,14 +19,14 @@ string trim(const string& value) {
   const auto last = value.find_last_not_of(" \t\r\n");
   return value.substr(first, last - first + 1);
 }
-
+// удобный распарсинг для False
 bool toBool(const string& value) {
   string lowered = value;
   transform(lowered.begin(), lowered.end(), lowered.begin(),
             [](unsigned char ch) { return static_cast<char>(tolower(ch)); });
   return !(lowered == "no" || lowered == "false" || lowered == "0");
 }
-
+// нормализуем isbn
 string normalizeIsbn(const string& value) {
   string normalized;
   normalized.reserve(value.size());
@@ -40,7 +40,7 @@ string normalizeIsbn(const string& value) {
 }
 
 Library::Library(const string& filePath) : dataFile(filePath) {}
-
+// дальше идут гетерсы и основные функции
 void Library::addBook(const Book& book) { books.push_back(book); }
 
 void Library::addUser(const User& user) {
@@ -75,7 +75,7 @@ void Library::returnBook(const string& isbn) {
   }
   book->returnBook();
 }
-
+// поиск книжки по isbn
 Book* Library::findBookByISBN(const string& isbn) {
   const string target = normalizeIsbn(isbn);
   auto it = find_if(books.begin(), books.end(),
@@ -84,7 +84,7 @@ Book* Library::findBookByISBN(const string& isbn) {
                     });
   return it == books.end() ? nullptr : &(*it);
 }
-
+// поиск юзера по имени
 User* Library::findUserByName(const string& name) {
   auto it = find_if(users.begin(), users.end(),
                     [&](const User& u) { return u.getName() == name; });
@@ -102,7 +102,7 @@ void Library::displayAllUsers() {
     user.displayProfile();
   }
 }
-
+// сохранение данных в файл
 void Library::saveToFile() {
   ofstream out(dataFile);
   if (!out.is_open()) {
@@ -142,7 +142,7 @@ void Library::saveToFile() {
     out << "MaxBooks: " << user.getMaxBooksAllowed() << "\n\n";
   }
 }
-
+// далее идут функция для загрузки из внешнего файла
 void Library::loadFromFile() {
   ifstream in(dataFile);
   if (!in.is_open()) {

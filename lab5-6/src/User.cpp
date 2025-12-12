@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// задаём неймспейс для удобной валидации userID
 namespace {
 bool isValidUserId(const string& userId) {
   const string prefix = "USR_";
@@ -30,7 +31,7 @@ User::User(string name,
     throw invalid_argument("Invalid user ID: " + userId);
   }
 }
-
+// гетерсы
 string User::getName() const 
 { return name; }
 string User::getUserId() const 
@@ -38,7 +39,7 @@ string User::getUserId() const
 vector<std::string> User::getBorrowedBooks() const 
 {return borrowedBooks;}
 
-
+// основной функцианал для пользователя
 int User::getMaxBooksAllowed() const { return maxBooksAllowed; }
 
 bool User::canBorrowMore() { return (maxBooksAllowed > borrowedBooks.size()); }
@@ -58,7 +59,7 @@ void User::removeBook(const string& isbn) {
   }
   throw runtime_error("User" + name + " not have books " + isbn);
 }
-
+// вывод профиля юзера
 void User::displayProfile() const {
   cout << "USER" << endl;
   cout << "Name: " << name << endl;
