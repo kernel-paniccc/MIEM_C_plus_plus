@@ -28,13 +28,16 @@ make
 ```
 
 РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЯ
+
 ![alt text](<Pasted image 20251212101934.png>)
 
 ОБРАБОТКА И ДОБАВЛЕНИЕ КНИГИ
+
 ![alt text](<Pasted image 20251212102014.png>)
 
 ПОИСК ПО ISBN
-![alt text](<Pasted image 20251212110713.png>)
+
+![alt text| ](<Pasted image 20251212110713.png>)
 
 #### Список реализованных функций
 
