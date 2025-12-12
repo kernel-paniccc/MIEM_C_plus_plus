@@ -13,7 +13,14 @@ Library::Library(const string& filePath) : dataFile(filePath) {}
 
 void Library::addBook(const Book& book) { books.push_back(book); }
 
-void Library::addUser(const User& user) { users.push_back(user); }
+void Library::addUser(const User& user) {
+  auto it = find_if(users.begin(), users.end(),
+                    [&](const User& u) { return u.getUserId() == user.getUserId(); });
+  if (it != users.end()) {
+    throw runtime_error("User ID already exists: " + user.getUserId());
+  }
+  users.push_back(user);
+}
 
 void Library::borrowBook(const string& userName, const string& isbn) {
   Book* book = findBookByISBN(isbn);
@@ -31,11 +38,12 @@ void Library::returnBook(const string& isbn) {
     return;
   }
 
-  for (auto& user : users) {
-    user.removeBook(isbn);
-    book->returnBook();
-    return;
+  const string borrowedBy = book->getBorrowedBy();
+  User* user = borrowedBy.empty() ? nullptr : findUserByName(borrowedBy);
+  if (user) {
+    user->removeBook(isbn);
   }
+  book->returnBook();
 }
 
 Book* Library::findBookByISBN(const string& isbn) {

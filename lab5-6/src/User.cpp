@@ -1,9 +1,22 @@
 #include "User.h"
 
 #include <algorithm>
+#include <cctype>
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
+
+namespace {
+bool isValidUserId(const string& userId) {
+  const string prefix = "USR_";
+  if (userId.size() <= prefix.size() || userId.rfind(prefix, 0) != 0) {
+    return false;
+  }
+  return all_of(userId.begin() + static_cast<long>(prefix.size()), userId.end(),
+                [](unsigned char ch) { return isdigit(ch); });
+}
+}
 
 User::User(string name,
            string userId,
@@ -12,7 +25,11 @@ User::User(string name,
     : name(name),
       userId(userId),
       borrowedBooks(borrowedBooks),
-      maxBooksAllowed(maxBooksAllowed) {}
+      maxBooksAllowed(maxBooksAllowed) {
+  if (!isValidUserId(userId)) {
+    throw invalid_argument("Invalid user ID: " + userId);
+  }
+}
 
 string User::getName() const 
 { return name; }
