@@ -7,11 +7,11 @@
 
 using namespace std;
 
-class PL {
+class ProcessList {
     private:
         ListNode* head;
     public:
-        PL(ListNode* head);
+    ProcessList(ListNode* head);
         bool insert(const PCB& newPCB);
         bool remove(int pid);
         string printList();

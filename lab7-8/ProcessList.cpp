@@ -1,14 +1,15 @@
-#include <iterator>
+#include <iostream>
 #include <string>
 #include <vector>
 #include "ProcessList.h"
 
 using namespace std;
 
-PL::PL(ListNode* head)
-    : head(head) {}
+ProcessList::ProcessList(ListNode* head)
+    : head(head) {};
 
 
+bool ProcessList::insert(const PCB& newPCB) {
+    
 
-
-
+}

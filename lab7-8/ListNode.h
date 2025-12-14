@@ -13,6 +13,12 @@ class ListNode {
         ListNode* next;
     public:
        ListNode(const PCB& data, ListNode* next);
+
+       //гетеры
+       PCB getData() const;
+       ListNode* getNext() const;
+       void setNext(ListNode*);
+
 };
 
 #endif // LN_H
