@@ -1,6 +1,7 @@
 #ifndef PL_H
 #define PL_H
 
+#include "PCB.h"
 #include "ListNode.h"
 #include <string>
 #include <vector>
@@ -11,7 +12,7 @@ class ProcessList {
     private:
         ListNode* head;
     public:
-    ProcessList(ListNode* head);
+    ProcessList(ListNode* head=nullptr);
         bool insert(const PCB& newPCB);
         bool remove(int pid);
         string printList();

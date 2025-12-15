@@ -1,7 +1,6 @@
 #ifndef PCB_H
 #define PCB_H
 
-#include <pthread.h>
 #include <string>
 #include <vector>
 
@@ -15,7 +14,7 @@ class PCB {
         int CommandCounter;
         vector <int> cpuRegisters;
     public:
-        PCB(int ProcessID, string ProcessName, string ProcessStatus, vector<int> cpuRegisters);
+        PCB(int ProcessID, string ProcessName, string ProcessStatus, int CommandCounter, vector<int> cpuRegisters);
         // гетеры
         int getId() const;
         string getName() const;

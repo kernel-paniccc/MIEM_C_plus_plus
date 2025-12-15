@@ -8,3 +8,9 @@ using namespace std;
 ListNode::ListNode(const PCB& data, ListNode* next):
     data(data),
     next(next) {}
+
+PCB ListNode::getData() const { return data;}
+
+ListNode* ListNode::getNext() const { return next; }
+
+void ListNode::setNext(ListNode* node) { next = node; }
