@@ -13,11 +13,12 @@ ProcessList::ProcessList(ListNode* head)
 bool ProcessList::insert(const PCB& newPCB) {
     int newPid = newPCB.getId();
 
-    if (head == nullptr) {
+    if ((his.head == nullptr) {
         ListNode* newNode = new ListNode(newPCB, nullptr);
         head = newNode;
         cout << "Создан новый список, т.к. спска нет";
         return true;
+
     }
 
     if (newPid == head->getData().getId()) {
