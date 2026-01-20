@@ -12,7 +12,7 @@ struct GroupInfo {
     T      minElem;  
     T      maxElem;  
     SumT   sum;     
-    double mid;      
+    double avg;      
 };
 
 template<class T, class KeyFunc, class ValueFunc>
@@ -52,7 +52,7 @@ auto groupStats(T* arr, int n, KeyFunc keyFunc, ValueFunc valueFunc)
             newGroup.minElem = arr[i];
             newGroup.maxElem = arr[i];
             newGroup.sum = val;
-            newGroup.mid = (double)val;
+            newGroup.avg = (double)val;
             
             groups.push_back(newGroup);
         }
@@ -68,7 +68,7 @@ auto groupStats(T* arr, int n, KeyFunc keyFunc, ValueFunc valueFunc)
                 groups[groupIndex].maxElem = arr[i];}
 
             groups[groupIndex].sum = groups[groupIndex].sum + val;
-            groups[groupIndex].mid = (double)groups[groupIndex].sum / groups[groupIndex].count;
+            groups[groupIndex].avg = (double)groups[groupIndex].sum / groups[groupIndex].count;
         }
     }
     
@@ -92,7 +92,7 @@ int main()
              << r1[i].minElem << ", "
              << r1[i].maxElem << ", "
              << r1[i]. sum << ", "
-             << r1[i].mid << "\n";
+             << r1[i].avg << "\n";
     }
 
     
@@ -110,7 +110,7 @@ int main()
              << r2[i].minElem << ", "
              << r2[i].maxElem << ", "
              << r2[i].sum << ", "
-             << r2[i].mid << "\n";
+             << r2[i].avg << "\n";
     }
     
     return 0;
