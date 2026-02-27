@@ -95,23 +95,43 @@ int main()
              << r1[i].avg << "\n";
     }
 
-    
-    string b[] = {"test_string", "njrfbewcklxw", "iopvtnjwcbjcrk"};
-    int size_b = 3;
+    double b[] = {12.2, 25.3, 37.42, 42.21, 15.123, 52.313};
+    int size_b = 6;
     
     auto r2 = groupStats(b, size_b,
+        [](double x) { return static_cast<int>(x) % 10; },
+        [](double x) { return x; } 
+    );
+    
+    for (int i = 0; i < r2.size(); i++) {
+        cout << r2[i]. key << ", "
+             << r2[i]. count << ", "
+             << r2[i].minElem << ", "
+             << r2[i].maxElem << ", "
+             << r2[i]. sum << ", "
+             << r2[i].avg << "\n";
+    }
+
+    
+    string c[] = {"test_string", "njrfbewcklxw", "iopvtnjwcbjcrk"};
+    int size_c = 3;
+    
+    auto r3 = groupStats(c, size_c,
         [](string s) { return s[0]; },
         [](string s) { return (int)s.size(); }
     );
     
-    for (int i = 0; i < r2.size(); i++) {
-        cout << r2[i].key << ", "
-             << r2[i].count << ", "
-             << r2[i].minElem << ", "
-             << r2[i].maxElem << ", "
-             << r2[i].sum << ", "
-             << r2[i].avg << "\n";
+    for (int i = 0; i < r3.size(); i++) {
+        cout << r3[i].key << ", "
+             << r3[i].count << ", "
+             << r3[i].minElem << ", "
+             << r3[i].maxElem << ", "
+             << r3[i].sum << ", "
+             << r3[i].avg << "\n";
     }
     
     return 0;
 }
+
+
+
