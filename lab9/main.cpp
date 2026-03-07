@@ -85,7 +85,7 @@ int main()
         [](int x) { return x % 10; },
         [](int x) { return x; } 
     );
-    
+
     for (int i = 0; i < r1.size(); i++) {
         cout << r1[i]. key << ", "
              << r1[i]. count << ", "
@@ -112,7 +112,7 @@ int main()
              << r2[i].avg << "\n";
     }
 
-    
+  
     string c[] = {"test_string", "njrfbewcklxw", "iopvtnjwcbjcrk"};
     int size_c = 3;
     

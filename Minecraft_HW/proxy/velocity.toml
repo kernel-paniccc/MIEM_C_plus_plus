@@ -1,0 +1,11 @@
+bind = "0.0.0.0:25565"
+motd = "My minecraft proxy"
+config-version = "2.7"
+ping-passthrough = "all"
+player-info-forwarding-mode = "none"
+
+[servers]
+backend = "paper:25570"
+try = ["backend"]
+
+[forced-hosts]

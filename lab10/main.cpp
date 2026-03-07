@@ -9,7 +9,7 @@ using namespace std;
 template <class T>
 class MyPipeline {
  public:
-
+ 
   size_t size() const { return steps.size(); }
   bool empty() const { return steps.empty(); }
   void clear() { steps.clear(); }
@@ -26,7 +26,7 @@ class MyPipeline {
   }
 
   void removeStep(size_t index) {
-    if (index >= steps.size()) {
+    if (index >= steps.size() || index <= 0) {
       throw out_of_range("Неверный индекс шага");
     }
     steps.erase(steps.begin() + index);

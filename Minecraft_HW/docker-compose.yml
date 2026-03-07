@@ -1,0 +1,20 @@
+services:
+  paper:
+    container_name: paper
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: paper:local
+    ports:
+      - "25570:25570"
+
+  velocity:
+    container_name: velocity
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    image: velocity:local
+    depends_on:
+      - paper
+    ports:
+      - "25565:25565"
