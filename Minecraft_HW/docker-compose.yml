@@ -5,8 +5,10 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     image: paper:local
-    ports:
-      - "25570:25570"
+    expose:
+      - "25570"
+    volumes:
+      - paper_world:/backend/world
 
   velocity:
     container_name: velocity
@@ -18,3 +20,6 @@ services:
       - paper
     ports:
       - "25565:25565"
+
+volumes:
+  paper_world:
