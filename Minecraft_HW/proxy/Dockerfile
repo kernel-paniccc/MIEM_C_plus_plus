@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:24.04
 
 WORKDIR /proxy
 
@@ -12,7 +12,7 @@ RUN curl -fL --retry 10 --retry-all-errors --connect-timeout 20 "https://github.
     && ln -sf /opt/graalvm/bin/java /usr/local/bin/java \
     && rm -f /tmp/graalvm.tar.gz
 
-RUN curl -fL --retry 10 --retry-all-errors --connect-timeout 20 "https://fill-data.papermc.io/v1/objects/6598686d19967d3cff77d13d23197b126106e512c049ae9f003cf944dcf9245e/velocity-3.5.0-SNAPSHOT-577.jar" -o velocity.jar
+RUN curl -fL --retry 10 --retry-all-errors --connect-timeout 20 "https://fill-data.papermc.io/v1/objects/728d8408102fd5fc7477d8b21c0dc60efc713404167cc24a95665cf72111d070/velocity-3.5.0-SNAPSHOT-574.jar" -o velocity.jar
 
 COPY velocity.toml /proxy/velocity.toml
 

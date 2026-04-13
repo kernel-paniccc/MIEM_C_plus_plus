@@ -24,7 +24,6 @@ class MyPipeline {
     s.func = function<T(T)>(func);
     steps.push_back(s);
   }
-
   void removeStep(size_t index) {
     if (index >= steps.size() || index <= 0) {
       throw out_of_range("Неверный индекс шага");
